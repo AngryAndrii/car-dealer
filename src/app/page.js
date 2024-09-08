@@ -6,9 +6,9 @@ export default function Home() {
   const [cars, setCars] = useState([]);
 
   const getCars = async () => {
-    let cars = await fetchCars();
-    cars = cars.Results;
-    setCars(cars);
+    const cars = await fetchCars();
+    const carsResult = cars.Results;
+    setCars(carsResult);
   };
 
   useEffect(() => {
@@ -20,7 +20,14 @@ export default function Home() {
   }
   return (
     <div className=" font-[family-name:var(--font-geist-sans)]">
-      <main></main>
+      <main>
+        <label htmlFor="make-select">Choose a car model:</label>
+        <select name="make-select" id="make-select">
+          {cars?.map((el) => {
+            return <option value={el.MakeName}>{el.MakeName}</option>;
+          })}
+        </select>
+      </main>
       <footer></footer>
     </div>
   );
