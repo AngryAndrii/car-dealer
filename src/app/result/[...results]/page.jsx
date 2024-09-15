@@ -1,6 +1,4 @@
-// 'use client';
 import { fetchCars } from "@/app/helpers/fetch";
-// import { useState } from 'react';
 
 export async function generateStaticParams() {
 
